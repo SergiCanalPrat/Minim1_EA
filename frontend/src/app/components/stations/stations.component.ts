@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {StationService} from "../../services/station.service";
+import {BikesService} from "../../services/bikes.service";
+
 import {Router} from "@angular/router";
 import { HttpErrorResponse } from "@angular/common/http";
 import {FormBuilder, FormControl, FormGroup, NgForm} from "@angular/forms";
 import { Stations } from "../../models/stations"
+import { Bikes } from 'src/app/models/bikes';
 
 @Component({
   selector: 'app-stations',
@@ -12,19 +15,17 @@ import { Stations } from "../../models/stations"
 })
 export class StationsComponent implements OnInit {
 stations: Stations[];
-stationId: string;
-detallesForm: FormGroup;
-detalle: Stations; 
+bikeList: Bikes[];
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private stationService: StationService){
+  constructor(private router: Router, private bikesService: BikesService, private stationService: StationService){
 
   }
   ngOnInit() {
    this.listaStations();
+
   }
 
   listaStations(){
-    console.log ("List of the stations: " , this.stations)
     this.stationService.getStations()
     .subscribe( res =>{
       
@@ -34,15 +35,13 @@ detalle: Stations;
 
   }
 
-  stationdetalle(){
-    console.log("Station details")
-    this.stationId = this.detallesForm.value.stationId;
-    this.stationService.getStation(this.stationId).subscribe(
-      res => {
-        console.log(res)
-        this.detalle = res 
-      });
+  getBikes(){
+    this.bikesService.getBikes()
+    .subscribe( res =>{
 
+      this.bikeList = res;
+      console.log ("List of the bikes: " , this.bikeList)
+    });
   }
  
 

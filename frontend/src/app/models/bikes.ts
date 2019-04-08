@@ -2,14 +2,12 @@ export class Bikes {
     _id: string;
     name: string;
     kms: number;
-    description: string //Array<String>;
+    description: string;
 
-    constructor(_id: string ='',name: string ='', kms: number = null, description: string =''/*phoneArray: Array<String> = []*/){
-        this._id = _id;
+    constructor(name: string ='', kms: number = null, description: string =''){
         this.name = name;
         this.kms = kms;
         this.description = description;
-        //this.phone = phoneArray;
     }
 
 }

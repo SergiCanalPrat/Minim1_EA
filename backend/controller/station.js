@@ -1,7 +1,7 @@
 'use strict'
 
-const Station = require('../modelos/stations')
-const Bike = require('../modelos/bikes')
+const Station = require('../modelos/station')
+const Bike = require('../modelos/bike')
 
 //funciones
 //listado de bikes
@@ -38,7 +38,7 @@ function saveStation (req, res){
     station.save((err, station) => {
         console.log(station)
         console.log(err)
-        if (err) res.status(500).send({mensaje: `Error al guardar en la base da datos ${err}`})
+        if (err) res.status(500).send({mensaje: `Error al guardar en la base de datos ${err}`})
         
         return res.status(200).send({station: station})
     })   

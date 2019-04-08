@@ -7,9 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StationsComponent } from './components/stations/stations.component';
 import { BikesComponent } from './components/bikes/bikes.component';
-import { NewstationComponent } from './components/newstation/newstation.component';
-import { MainComponent } from './components/main/main.component';
-import { NewBikeComponent } from './components/newbike/newbike.component';
 
 
 @NgModule({
@@ -17,9 +14,6 @@ import { NewBikeComponent } from './components/newbike/newbike.component';
     AppComponent,
     StationsComponent,
     BikesComponent,
-    NewstationComponent,
-    MainComponent,
-    NewBikeComponent,
    
   ],
   imports: [

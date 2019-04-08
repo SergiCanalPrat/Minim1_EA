@@ -1,7 +1,5 @@
 
-<p *ngFor ="let station of stations">
-    {{station.name}}
-</p>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,51 +40,39 @@ tr:nth-child(even) {
 </head>
 <body>
 
-    <h2>STATIONS</h2>
+        <h2>Bikes</h2>
+        <div>
+            <table>
+                    <th>Station</th>
+                    <th>State</th>
+                    <th>Description</th>
 
-<table>
-  <tr>
-    <th>Station</th>
-    <th>State</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Arc del triomf</td>
-    <td>NA</td>
-    <td>Value 3    
-        <a id="btn1" [routerLink]="['api/stations/1']">
-        <button>View</button>
-    </a></td>
-  </tr>
-  <tr>
-    <td>Plaça Catalunya</td>
-    <td>Available</td>
-    <td>Value 6    
-        <a id="btn2" [routerLink]="['api/stations/2']">
-        <button>View</button>
-    </a></td>
-  </tr>
-  <tr>
-    <td>Av. Sarrià</td>
-    <td>Available</td>
-    <td>Value 9    
-        <a id="btn3" [routerLink]="['api/stations/3']">
-        <button>View</button>
-    </a></td>
-  </tr>
-  <tr>
-    <td>Les Corts</td>
-    <td>Available</td>
-    <td>Value 12   
-        <a id="btn4" [routerLink]="['api/stations/4']">
-        <button>View</button>
-    </a></td>
-  </tr>
-
-
-
-</table>
-
+                <tr *ngFor="let bike of bikeList">
+                    <td>{{bike.name}}</td>
+                    <td>{{bike.kms}}</td>
+                    <td>{{bike.description}}</td>
+                <td>
+                    <button class="btn btn-primary" [routerLink]="['/api/bike', station._id]" >View
+                    </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+        <table>
+                <th>Bike</th>
+                <th>Kms</th>
+                <th>Description</th>
+            <tr *ngFor="let bike of unassignedbikes">
+                <td>{{bike.name}}</td>
+                <td>{{bike.kms}}</td>
+                <td>{{bike.description}}</td>
+                <td>
+                    <a (click)="postBikeStation(bike._id, station._id)"></a>
+                </td>
+            </tr>
+        </table>
+        </div>
 </body>
 </html>
 

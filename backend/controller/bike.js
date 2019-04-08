@@ -1,8 +1,8 @@
 'use strict'
-const Bikes = require('../modelos/bikes')
+const Bikes = require('../modelos/bike')
 
 //funciones
-function listarBikes(req, res) {
+function getBikes(req, res) {
     //busca todos los usuarios, claudator vacio
     Bikes.find({}, (err, bikes) => { //l'array de productes no m'ho dona
         if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
@@ -33,7 +33,7 @@ function saveBike (req,res){
     console.log(bike)
     bike.save((err, bike) => {
         console.log(bike)
-        if (err) res.status(500).send({mensaje: 'Error al guardar en la base da datos ${err}'})
+        if (err) res.status(500).send({mensaje: 'Error al guardar en la base de datos ${err}'})
         res.status(200).send({bike})
     })   
 }
@@ -67,7 +67,7 @@ function deleteBike (req, res){
 }
 
 module.exports = {
-    listarBikes,
+    getBikes,
     saveBike: saveBike,
     getBikebyId: getBikebyId,
     updateBike: updateBike,

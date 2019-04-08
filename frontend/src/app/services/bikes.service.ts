@@ -12,13 +12,25 @@ export class BikesService {
   selectedBike: Bikes; 
 
   constructor( private http: HttpClient) {
-    this.selectedBike = new Bikes("","",null,"");
+    this.selectedBike = new Bikes("",null,"");
     this.environment = new Environments();
    }
    //recoger los datos en http 
    
-   addBike(bike: Bikes) {
+  getBikes() {
+    return this.http.get<Bikes[]>(this.environment.urlBike);
+  }
+
+  getBike(_id: string) {
+    return this.http.get(this.environment.urlBike + `/${_id}/bikedetail`);
+  }
+
+  addBike(bike: Bikes) {
     return this.http.post(this.environment.urlBike + "nuevo", bike)
   }
+
+  deleteBike(_id: string){
+    return this.http.delete(this.environment.urlBike + `/${_id}`)
+  } 
    
 }
