@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AsignaturasComponent } from './components/asignaturas/asignaturas.component';
-import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { StationsComponent } from './components/stations/stations.component';
+import { BikesComponent } from './components/bikes/bikes.component';
 import { MainComponent } from "./components/main/main.component";
-import { NewasignaturaComponent } from "./components/newasignatura/newasignatura.component";
-import { NewalumnoComponent } from "./components/newalumno/newalumno.component";
+import { NewstationComponent } from "./components/newstation/newstation.component";
+import { NewBikeComponent } from "./components/newbike/newbike.component";
 
 const routes: Routes = [
 
-  {path: 'api/asignaturas/:id', component: AsignaturasComponent},
-  {path: 'api/asignatura/:id', component: AsignaturasComponent},
-  {path: 'api/alumno/:id', component: AlumnosComponent},
+  {path: 'api/stations', component: StationsComponent},
+  {path: 'api/station/:id', component: StationsComponent},
+  {path: 'api/stations/1', component: NewBikeComponent},
+  {path: 'api/stations/2', component: NewBikeComponent},
+  {path: 'api/stations/3', component: NewBikeComponent},
+  {path: 'api/stations/4', component: NewBikeComponent},
+
+
 
   {path: '', component: MainComponent, pathMatch: 'full'},
-  {path: 'api/add_alumno', component: NewalumnoComponent},
-  {path: 'api/add_subject', component: NewasignaturaComponent}
+  {path: 'api/stations/1', component: NewBikeComponent},
+  {path: 'api/stations/2', component: NewBikeComponent},
+  {path: 'api/stations/3', component: NewBikeComponent},
+  {path: 'api/stations/4', component: NewBikeComponent},
+
+  {path: 'api/add_station', component: NewstationComponent}
 ];
 
 @NgModule({

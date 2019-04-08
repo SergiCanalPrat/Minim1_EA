@@ -2,25 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AsignaturaService} from "../../services/asignatura.service";
-import {Asignaturas} from "../../models/asignaturas";
+import {StationService} from "../../services/station.service";
+import {Stations} from "../../models/stations";
 
 
 @Component({
-  selector: 'app-newasignatura',
-  templateUrl: './newasignatura.component.html',
-  styleUrls: ['./newasignatura.component.css']
+  selector: 'app-newstation',
+  templateUrl: './newstation.component.html',
+  styleUrls: ['./newstation.component.css']
 })
-export class NewasignaturaComponent implements OnInit {
+export class NewstationComponent implements OnInit {
 
-  newasignaturaForm: FormGroup;
+  newstationForm: FormGroup;
 
   validation_messages: any;
 
-  constructor(private newasignaturaService: AsignaturaService,
+  constructor(private newstationService: StationService,
               private router: Router, private formBuilder: FormBuilder) {
 
-    this.newasignaturaForm = this.formBuilder.group({
+    this.newstationForm = this.formBuilder.group({
         name: new FormControl('', Validators.compose([
           Validators.required,
           Validators.pattern(/.{1,20}$/)])),
@@ -37,14 +37,14 @@ export class NewasignaturaComponent implements OnInit {
     }
   }
 
-  addAsignatura() {
-    console.log(this.newasignaturaForm.value);
-    let asignatura = new Asignaturas();
-    asignatura._id = "";
-    asignatura.name = this.newasignaturaForm.value.name;
-    asignatura.alumnos = "";
+  addStation() {
+    console.log(this.newstationForm.value);
+    let station = new Stations();
+    station._id = "";
+    station.name = this.newstationForm.value.name;
+    station.bikes = "";
 
-    this.newasignaturaService.addAsignatura(asignatura)
+    this.newstationService.addStation(station)
       .subscribe(
         res => {
           console.log(res);

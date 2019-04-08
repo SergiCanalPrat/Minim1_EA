@@ -5,21 +5,21 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AsignaturasComponent } from './components/asignaturas/asignaturas.component';
-import { AlumnosComponent } from './components/alumnos/alumnos.component';
-import { NewasignaturaComponent } from './components/newasignatura/newasignatura.component';
+import { StationsComponent } from './components/stations/stations.component';
+import { BikesComponent } from './components/bikes/bikes.component';
+import { NewstationComponent } from './components/newstation/newstation.component';
 import { MainComponent } from './components/main/main.component';
-import { NewalumnoComponent } from './components/newalumno/newalumno.component';
+import { NewBikeComponent } from './components/newbike/newbike.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AsignaturasComponent,
-    AlumnosComponent,
-    NewasignaturaComponent,
+    StationsComponent,
+    BikesComponent,
+    NewstationComponent,
     MainComponent,
-    NewalumnoComponent,
+    NewBikeComponent,
    
   ],
   imports: [

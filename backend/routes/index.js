@@ -1,47 +1,47 @@
 'use strict'
 
 const express = require('express')
-const asignaturaCtrl = require('../controller/asignaturas')
-const alumnoCtrl = require('../controller/alumnos')
+const stationCtrl = require('../controller/stations')
+const bikeCtrl = require('../controller/bikes')
 const api = express.Router()
 
 
-//ASIGNATURAS: http://localhost:3000/api/asignatura
-//crear asignatura - FUNCIONA
-api.post('/asignatura/nueva', asignaturaCtrl.saveAsignatura)
-//listado de asignaturas - FUNCIONA
-api.get('/asignatura/listaAsignaturas', asignaturaCtrl.getAsignaturas)
-//detalle asignatura - FUNCIONA
-api.get('/asignatura/:asignaturaId', asignaturaCtrl.getAsignatura)
-//modificar asignatura
+//Stations: http://localhost:3000/api/station
+//crear station - FUNCIONA
+api.post('/stations/nueva', stationCtrl.saveStation)
+//listado de stations - FUNCIONA
+api.get('/stations/listaStation', stationCtrl.getStations)
+//detalle stations - FUNCIONA
+api.get('/stations/:stationId', stationCtrl.getStation)
+//modificar station
 //----
-//eliminar asignatura
+//eliminar station
 //----
 
 
-//ALUMNOS: http://localhost:3000/api/alumno
-// crear alumno - FUNCIONA
-api.post('/alumno/nuevo', alumnoCtrl.saveAlumno)
-//listar alumnos - FUNCIONA
-api.get('/alumno/listaAlumnos', alumnoCtrl.listarAlumnos)
-//detalle alumno - FUNCIONA
-api.get('/alumno/:alumnoId', alumnoCtrl.getAlumnobyId)
-//modificar alumno - FUNCIONA
-api.put('/alumno/modificar/:alumnoId', alumnoCtrl.updateAlumno)
-//eliminar alumno - FUNCIONA
-api.delete('/alumno/:alumnoId', alumnoCtrl.deleteAlumno)
+//BIKES: http://localhost:3000/api/bike
+// crear bike - FUNCIONA
+api.post('/bike/nuevo', bikeCtrl.saveBike)
+//listar bikes - FUNCIONA
+api.get('/bike/listaBikes', bikeCtrl.listarBikes)
+//detalle bike - FUNCIONA
+api.get('/bike/:bikeId', bikeCtrl.getBikebyId)
+//modificar bike - FUNCIONA
+api.put('/bike/modificar/:bikeId', bikeCtrl.updateBike)
+//eliminar bike - FUNCIONA
+api.delete('/bike/:bikeId', bikeCtrl.deleteBike)
 
 
 
-//ASIGNATURAS Y ALUMNOS: http://localhost:3000/api/relacion
-// añadir alumno a asignatura - FUNCIONA
-api.put('/relacion/:asignaturaId/:alumnoId', asignaturaCtrl.addAlumno)
-//listado asignaturas con alumnos
-api.get('/relacion/listaAsignaturasConAlumnos', asignaturaCtrl.getAsignaturasconalumnos)
-//listas alumnos de una asignatura
-api.get('/relacion/listaAlumnos/:asignaturaId', asignaturaCtrl.getAlumnosdeAsignatura)
-//detalle alumno de una asignatura -- FUNCIONA
-api.get('/relacion/alumnoDeAsignatura/:alumnoId', asignaturaCtrl.getAlumno)
+//STATIONS AND BIKES: http://localhost:3000/api/relation
+// añadir bike a station - FUNCIONA
+api.put('/relacion/:stationId/:bikeId', stationCtrl.addBike)
+//listado stations con bikes
+api.get('/relacion/listaStationsConBikes', stationCtrl.getStationsconbikes)
+//listas bikes de una station
+api.get('/relacion/listaBikes/:stationId', stationCtrl.getBikedeStation)
+//detalle bike de una station -- FUNCIONA
+api.get('/relacion/bikeDeStation/:bikeId', stationCtrl.getbike)
 
 
 module.exports = api;

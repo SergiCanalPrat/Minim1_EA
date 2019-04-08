@@ -7,11 +7,9 @@ const bodyParser = require('body-parser')
 
 const cors = require('cors')
 const app = express()
-const api = require('./routes/index')
+const api = express.Router();
 
-
-
-    //Método use
+//Método use
 app.use(bodyParser.urlencoded({ extended: false}))
 //Permitir peticiones con formato de mensaje JSON
 app.use(bodyParser.json())

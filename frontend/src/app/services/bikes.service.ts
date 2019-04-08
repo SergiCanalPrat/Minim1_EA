@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
-import { Alumnos } from "../models/alumnos";
+import { Bikes } from "../models/bikes";
 import { Environments } from "./environments"
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlumnosService {  
+export class BikesService {  
   environment: Environments;
-  selectedAlumno: Alumnos; 
+  selectedBike: Bikes; 
 
   constructor( private http: HttpClient) {
-    this.selectedAlumno = new Alumnos("","","","");
+    this.selectedBike = new Bikes("","",null,"");
     this.environment = new Environments();
    }
    //recoger los datos en http 
    
-   addAlumno(alumno: Alumnos) {
-    return this.http.post(this.environment.urlAlumno + "nuevo", alumno)
+   addBike(bike: Bikes) {
+    return this.http.post(this.environment.urlBike + "nuevo", bike)
   }
    
 }
