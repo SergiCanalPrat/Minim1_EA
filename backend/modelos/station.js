@@ -5,11 +5,11 @@ const Schema = mongoose.Schema
 
 //esquema de bikes 
 const StationSchema = new Schema({
-    station: {type: String,unique: true},
+    name: {type: String},
     state: String,
     description: String,
     bikes: [bikesSchema]
 })
 
 
-module.exports = mongoose.model('Stations', StationSchema)
+module.exports = mongoose.model('Station', StationSchema)

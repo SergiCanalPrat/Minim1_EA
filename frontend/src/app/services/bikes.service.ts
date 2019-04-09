@@ -18,19 +18,18 @@ export class BikesService {
    //recoger los datos en http 
    
   getBikes() {
-    return this.http.get<Bikes[]>(this.environment.urlBike);
+    return this.http.get(this.environment.urlBike);
   }
 
-  getBike(_id: string) {
-    return this.http.get(this.environment.urlBike + `/${_id}/bikedetail`);
+  getBikeById(_id: string) {
+    return this.http.get(this.environment.urlBike + `/${_id}`);
   }
 
   addBike(bike: Bikes) {
-    return this.http.post(this.environment.urlBike + "nuevo", bike)
+    return this.http.post(this.environment.urlBike + "/new", bike)
   }
 
   deleteBike(_id: string){
-    return this.http.delete(this.environment.urlBike + `/${_id}`)
-  } 
-   
+    return this.http.delete(this.environment.urlBike + `/eliminar/${_id}`)
+  }  
 }

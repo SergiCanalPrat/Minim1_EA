@@ -5,15 +5,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StationsComponent } from './components/stations/stations.component';
-import { BikesComponent } from './components/bikes/bikes.component';
+import { BikeslistComponent } from './components/bikeslist/bikeslist.component';
+import { StationslistComponent } from './components/stationslist/stationslist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StationsComponent,
-    BikesComponent,
+    BikeslistComponent,
+    StationslistComponent
    
   ],
   imports: [

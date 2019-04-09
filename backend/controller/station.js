@@ -4,8 +4,18 @@ const Station = require('../modelos/station')
 const Bike = require('../modelos/bike')
 
 //funciones
-//listado de bikes
+//listado de stations
 function getStations(req, res) {
+    Station.find({ }, (err, stations) => {
+        if (err) return res.status(500).send( `Error al realizar la petición a ala base de datos: ${err} `)
+        if (!stations) return res.status(404).send('No hay stations')
+        res.status(200).send(stations)
+    })
+}
+
+
+function getEstacions(req, res) {
+    console.log('ha entrado');
     Station.find({ }, (err, stations) => {
         if (err) return res.status(500).send( `Error al realizar la petición a ala base de datos: ${err} `)
         if (!stations) return res.status(404).send('No hay stations')
@@ -29,24 +39,32 @@ function getStationsconbikes(req, res) {
     })
   }
 
+
+  
 //guardar stations
 function saveStation (req, res){
+    console.log(req.body);
     let station = new Station({
-        name: req.body.name
+        name: req.body.name,
+        state: req.body.state,
+        description: req.body.description
+
     });
-    console.log(station)
+    console.log(station);
     station.save((err, station) => {
         console.log(station)
-        console.log(err)
+        
         if (err) res.status(500).send({mensaje: `Error al guardar en la base de datos ${err}`})
         
         return res.status(200).send({station: station})
+        console.log(err)
     })   
 }
 
 
 //detalle de las stations una por una
-function getStation(req, res) {
+function getStationById(req, res) {
+    console.log('holii')
     let stationId = req.params.stationId
     Station.findById(stationId,(err, station) => {
         if (err) return res.status(500).send(`Error al realizar la petición: ${err} `)
@@ -109,11 +127,14 @@ function addBike (req, res) {
 }
 
 module.exports = {
+    getStations,
+    getEstacions,
     getStationsconbikes,
-    saveStation: saveStation,
-    getStation: getStations,
-    getStation: getStation,
-    getBikes: getBike,
+    saveStation,
+    getStationById,
+    getBike,
     getBikesdeStation,
-    addBike: addBike
+    addBike
+
+
 }

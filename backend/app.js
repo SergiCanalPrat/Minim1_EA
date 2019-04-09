@@ -1,3 +1,5 @@
+//Importar librerías
+
 'use strict'
 const express = require('express')
 
@@ -7,7 +9,8 @@ const bodyParser = require('body-parser')
 
 const cors = require('cors')
 const app = express()
-const api = express.Router();
+const api = require('./routes/index')
+
 
 //Método use
 app.use(bodyParser.urlencoded({ extended: false}))
